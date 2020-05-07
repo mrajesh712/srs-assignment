@@ -1,0 +1,25 @@
+
+ubuntu@ip-10-220-0-10:~$ cd Docker ; ls
+ubuntu@ip-10-220-0-10:~$ Dockerfile  docker-compose.yml  html  nginx.conf 
+ubuntu@ip-10-220-0-10:~/Docker$ sudo docker-compose up --build
+Building web
+Step 1/5 : FROM nginx:latest
+ ---> 602e111c06b6
+Step 2/5 : RUN mkdir /app &&     echo "#!/bin/bash" > /app/migrate.sh &&     chm                                                                                        od +x /app/migrate.sh
+ ---> Using cache
+ ---> ed08fd9debe5
+Step 3/5 : COPY nginx.conf /etc/nginx/nginx.conf
+ ---> Using cache
+ ---> 5a892c961a11
+Step 4/5 : COPY html /usr/share/nginx/html
+ ---> Using cache
+ ---> 81af8bb933a3
+Step 5/5 : EXPOSE 80
+ ---> Using cache
+ ---> 0ab79fa0ecbc
+Successfully built 0ab79fa0ecbc
+Successfully tagged docker_web:latest
+Starting docker_web_1 ...
+Starting docker_web_1 ... done
+Attaching to docker_web_1
+web_1  | 10.220.0.10 - - [06/May/2020:23:15:50 +0000] "GET / HTTP/1.1" 200 612 "                                                                                        -" "curl/7.58.0" "-"

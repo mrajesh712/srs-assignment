@@ -1,0 +1,942 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS F:\Rajesh\terraform> terraform init
+
+Initializing provider plugins...
+- Checking for available provider plugins on https://releases.hashicorp.com...
+- Downloading plugin for provider "aws" (2.60.0)...
+
+The following providers do not have any version constraints in configuration,
+so the latest version was installed.
+
+To prevent automatic upgrades to new major versions that may contain breaking
+changes, it is recommended to add version = "..." constraints to the
+corresponding provider blocks in configuration, with the constraint strings
+suggested below.
+
+* provider.aws: version = "~> 2.60"
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+PS F:\Rajesh\terraform>
+PS F:\Rajesh\terraform> terraform plan -out=plan
+Refreshing Terraform state in-memory prior to plan...
+The refreshed state will be used to calculate this plan, but will not be
+persisted to local or remote state storage.
+
+data.aws_ami.latest-ubuntu: Refreshing state...
+
+------------------------------------------------------------------------
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  + aws_eip.nat_eip
+      id:                                        <computed>
+      allocation_id:                             <computed>
+      association_id:                            <computed>
+      domain:                                    <computed>
+      instance:                                  <computed>
+      network_interface:                         <computed>
+      private_dns:                               <computed>
+      private_ip:                                <computed>
+      public_dns:                                <computed>
+      public_ip:                                 <computed>
+      public_ipv4_pool:                          <computed>
+      tags.%:                                    "1"
+      tags.Name:                                 "srs-assignment-v1.0-NAT"
+      vpc:                                       "true"
+
+  + aws_instance.srs-ec2-assignment[0]
+      id:                                        <computed>
+      ami:                                       "ami-0b44050b2d893d5f7"
+      arn:                                       <computed>
+      associate_public_ip_address:               "true"
+      availability_zone:                         <computed>
+      cpu_core_count:                            <computed>
+      cpu_threads_per_core:                      <computed>
+      ebs_block_device.#:                        <computed>
+      ephemeral_block_device.#:                  <computed>
+      get_password_data:                         "false"
+      host_id:                                   <computed>
+      instance_state:                            <computed>
+      instance_type:                             "t2.micro"
+      ipv6_address_count:                        <computed>
+      ipv6_addresses.#:                          <computed>
+      key_name:                                  "srs-assignment-awskey"
+      metadata_options.#:                        <computed>
+      network_interface.#:                       <computed>
+      network_interface_id:                      <computed>
+      outpost_arn:                               <computed>
+      password_data:                             <computed>
+      placement_group:                           <computed>
+      primary_network_interface_id:              <computed>
+      private_dns:                               <computed>
+      private_ip:                                <computed>
+      public_dns:                                <computed>
+      public_ip:                                 <computed>
+      root_block_device.#:                       "1"
+      root_block_device.0.delete_on_termination: "true"
+      root_block_device.0.device_name:           <computed>
+      root_block_device.0.encrypted:             <computed>
+      root_block_device.0.kms_key_id:            <computed>
+      root_block_device.0.volume_id:             <computed>
+      root_block_device.0.volume_size:           "10"
+      root_block_device.0.volume_type:           "gp2"
+      security_groups.#:                         <computed>
+      source_dest_check:                         "true"
+      subnet_id:                                 "${aws_subnet.srs-subnet-web.id}"
+      tags.%:                                    "1"
+      tags.Name:                                 "srs-assignment-v1.0-ec2-1"
+      tenancy:                                   <computed>
+      volume_tags.%:                             "1"
+      volume_tags.Name:                          "srs-assignment-v1.0-ec2-1"
+      vpc_security_group_ids.#:                  <computed>
+
+  + aws_instance.srs-ec2-assignment[1]
+      id:                                        <computed>
+      ami:                                       "ami-0b44050b2d893d5f7"
+      arn:                                       <computed>
+      associate_public_ip_address:               "true"
+      availability_zone:                         <computed>
+      cpu_core_count:                            <computed>
+      cpu_threads_per_core:                      <computed>
+      ebs_block_device.#:                        <computed>
+      ephemeral_block_device.#:                  <computed>
+      get_password_data:                         "false"
+      host_id:                                   <computed>
+      instance_state:                            <computed>
+      instance_type:                             "t2.micro"
+      ipv6_address_count:                        <computed>
+      ipv6_addresses.#:                          <computed>
+      key_name:                                  "srs-assignment-awskey"
+      metadata_options.#:                        <computed>
+      network_interface.#:                       <computed>
+      network_interface_id:                      <computed>
+      outpost_arn:                               <computed>
+      password_data:                             <computed>
+      placement_group:                           <computed>
+      primary_network_interface_id:              <computed>
+      private_dns:                               <computed>
+      private_ip:                                <computed>
+      public_dns:                                <computed>
+      public_ip:                                 <computed>
+      root_block_device.#:                       "1"
+      root_block_device.0.delete_on_termination: "true"
+      root_block_device.0.device_name:           <computed>
+      root_block_device.0.encrypted:             <computed>
+      root_block_device.0.kms_key_id:            <computed>
+      root_block_device.0.volume_id:             <computed>
+      root_block_device.0.volume_size:           "10"
+      root_block_device.0.volume_type:           "gp2"
+      security_groups.#:                         <computed>
+      source_dest_check:                         "true"
+      subnet_id:                                 "${aws_subnet.srs-subnet-web.id}"
+      tags.%:                                    "1"
+      tags.Name:                                 "srs-assignment-v1.0-ec2-2"
+      tenancy:                                   <computed>
+      volume_tags.%:                             "1"
+      volume_tags.Name:                          "srs-assignment-v1.0-ec2-2"
+      vpc_security_group_ids.#:                  <computed>
+
+  + aws_instance.srs-ec2-assignment[2]
+      id:                                        <computed>
+      ami:                                       "ami-0b44050b2d893d5f7"
+      arn:                                       <computed>
+      associate_public_ip_address:               "true"
+      availability_zone:                         <computed>
+      cpu_core_count:                            <computed>
+      cpu_threads_per_core:                      <computed>
+      ebs_block_device.#:                        <computed>
+      ephemeral_block_device.#:                  <computed>
+      get_password_data:                         "false"
+      host_id:                                   <computed>
+      instance_state:                            <computed>
+      instance_type:                             "t2.micro"
+      ipv6_address_count:                        <computed>
+      ipv6_addresses.#:                          <computed>
+      key_name:                                  "srs-assignment-awskey"
+      metadata_options.#:                        <computed>
+      network_interface.#:                       <computed>
+      network_interface_id:                      <computed>
+      outpost_arn:                               <computed>
+      password_data:                             <computed>
+      placement_group:                           <computed>
+      primary_network_interface_id:              <computed>
+      private_dns:                               <computed>
+      private_ip:                                <computed>
+      public_dns:                                <computed>
+      public_ip:                                 <computed>
+      root_block_device.#:                       "1"
+      root_block_device.0.delete_on_termination: "true"
+      root_block_device.0.device_name:           <computed>
+      root_block_device.0.encrypted:             <computed>
+      root_block_device.0.kms_key_id:            <computed>
+      root_block_device.0.volume_id:             <computed>
+      root_block_device.0.volume_size:           "10"
+      root_block_device.0.volume_type:           "gp2"
+      security_groups.#:                         <computed>
+      source_dest_check:                         "true"
+      subnet_id:                                 "${aws_subnet.srs-subnet-web.id}"
+      tags.%:                                    "1"
+      tags.Name:                                 "srs-assignment-v1.0-ec2-3"
+      tenancy:                                   <computed>
+      volume_tags.%:                             "1"
+      volume_tags.Name:                          "srs-assignment-v1.0-ec2-3"
+      vpc_security_group_ids.#:                  <computed>
+
+  + aws_instance.srs-ec2-assignment[3]
+      id:                                        <computed>
+      ami:                                       "ami-0b44050b2d893d5f7"
+      arn:                                       <computed>
+      associate_public_ip_address:               "true"
+      availability_zone:                         <computed>
+      cpu_core_count:                            <computed>
+      cpu_threads_per_core:                      <computed>
+      ebs_block_device.#:                        <computed>
+      ephemeral_block_device.#:                  <computed>
+      get_password_data:                         "false"
+      host_id:                                   <computed>
+      instance_state:                            <computed>
+      instance_type:                             "t2.micro"
+      ipv6_address_count:                        <computed>
+      ipv6_addresses.#:                          <computed>
+      key_name:                                  "srs-assignment-awskey"
+      metadata_options.#:                        <computed>
+      network_interface.#:                       <computed>
+      network_interface_id:                      <computed>
+      outpost_arn:                               <computed>
+      password_data:                             <computed>
+      placement_group:                           <computed>
+      primary_network_interface_id:              <computed>
+      private_dns:                               <computed>
+      private_ip:                                <computed>
+      public_dns:                                <computed>
+      public_ip:                                 <computed>
+      root_block_device.#:                       "1"
+      root_block_device.0.delete_on_termination: "true"
+      root_block_device.0.device_name:           <computed>
+      root_block_device.0.encrypted:             <computed>
+      root_block_device.0.kms_key_id:            <computed>
+      root_block_device.0.volume_id:             <computed>
+      root_block_device.0.volume_size:           "10"
+      root_block_device.0.volume_type:           "gp2"
+      security_groups.#:                         <computed>
+      source_dest_check:                         "true"
+      subnet_id:                                 "${aws_subnet.srs-subnet-web.id}"
+      tags.%:                                    "1"
+      tags.Name:                                 "srs-assignment-v1.0-ec2-4"
+      tenancy:                                   <computed>
+      volume_tags.%:                             "1"
+      volume_tags.Name:                          "srs-assignment-v1.0-ec2-4"
+      vpc_security_group_ids.#:                  <computed>
+
+  + aws_instance.srs-ec2-assignment[4]
+      id:                                        <computed>
+      ami:                                       "ami-0b44050b2d893d5f7"
+      arn:                                       <computed>
+      associate_public_ip_address:               "true"
+      availability_zone:                         <computed>
+      cpu_core_count:                            <computed>
+      cpu_threads_per_core:                      <computed>
+      ebs_block_device.#:                        <computed>
+      ephemeral_block_device.#:                  <computed>
+      get_password_data:                         "false"
+      host_id:                                   <computed>
+      instance_state:                            <computed>
+      instance_type:                             "t2.micro"
+      ipv6_address_count:                        <computed>
+      ipv6_addresses.#:                          <computed>
+      key_name:                                  "srs-assignment-awskey"
+      metadata_options.#:                        <computed>
+      network_interface.#:                       <computed>
+      network_interface_id:                      <computed>
+      outpost_arn:                               <computed>
+      password_data:                             <computed>
+      placement_group:                           <computed>
+      primary_network_interface_id:              <computed>
+      private_dns:                               <computed>
+      private_ip:                                <computed>
+      public_dns:                                <computed>
+      public_ip:                                 <computed>
+      root_block_device.#:                       "1"
+      root_block_device.0.delete_on_termination: "true"
+      root_block_device.0.device_name:           <computed>
+      root_block_device.0.encrypted:             <computed>
+      root_block_device.0.kms_key_id:            <computed>
+      root_block_device.0.volume_id:             <computed>
+      root_block_device.0.volume_size:           "10"
+      root_block_device.0.volume_type:           "gp2"
+      security_groups.#:                         <computed>
+      source_dest_check:                         "true"
+      subnet_id:                                 "${aws_subnet.srs-subnet-web.id}"
+      tags.%:                                    "1"
+      tags.Name:                                 "srs-assignment-v1.0-ec2-5"
+      tenancy:                                   <computed>
+      volume_tags.%:                             "1"
+      volume_tags.Name:                          "srs-assignment-v1.0-ec2-5"
+      vpc_security_group_ids.#:                  <computed>
+
+  + aws_internet_gateway.srs-igw
+      id:                                        <computed>
+      owner_id:                                  <computed>
+      tags.%:                                    "1"
+      tags.Name:                                 "srs-assignment-v1.0-igw"
+      vpc_id:                                    "${aws_vpc.srs-vpc.id}"
+
+  + aws_nat_gateway.srs-ngw
+      id:                                        <computed>
+      allocation_id:                             "${aws_eip.nat_eip.id}"
+      network_interface_id:                      <computed>
+      private_ip:                                <computed>
+      public_ip:                                 <computed>
+      subnet_id:                                 "${aws_subnet.srs-subnet-web.id}"
+      tags.%:                                    "1"
+      tags.Name:                                 "srs-assignment-v1.0-ngw"
+
+  + aws_route.srs-rt-pvt_ngw
+      id:                                        <computed>
+      destination_cidr_block:                    "0.0.0.0/0"
+      destination_prefix_list_id:                <computed>
+      egress_only_gateway_id:                    <computed>
+      gateway_id:                                "${aws_nat_gateway.srs-ngw.id}"
+      instance_id:                               <computed>
+      instance_owner_id:                         <computed>
+      nat_gateway_id:                            <computed>
+      network_interface_id:                      <computed>
+      origin:                                    <computed>
+      route_table_id:                            "${aws_route_table.srs-rt-ngw.id}"
+      state:                                     <computed>
+
+  + aws_route.srs-rt-web_igw
+      id:                                        <computed>
+      destination_cidr_block:                    "0.0.0.0/0"
+      destination_prefix_list_id:                <computed>
+      egress_only_gateway_id:                    <computed>
+      gateway_id:                                "${aws_internet_gateway.srs-igw.id}"
+      instance_id:                               <computed>
+      instance_owner_id:                         <computed>
+      nat_gateway_id:                            <computed>
+      network_interface_id:                      <computed>
+      origin:                                    <computed>
+      route_table_id:                            "${aws_route_table.srs-rt-web.id}"
+      state:                                     <computed>
+
+  + aws_route_table.srs-rt-ngw
+      id:                                        <computed>
+      owner_id:                                  <computed>
+      propagating_vgws.#:                        <computed>
+      route.#:                                   <computed>
+      tags.%:                                    "1"
+      tags.Name:                                 "srs-assignment-v1.0-rt-ngw"
+      vpc_id:                                    "${aws_vpc.srs-vpc.id}"
+
+  + aws_route_table.srs-rt-web
+      id:                                        <computed>
+      owner_id:                                  <computed>
+      propagating_vgws.#:                        <computed>
+      route.#:                                   <computed>
+      tags.%:                                    "1"
+      tags.Name:                                 "srs-assignment-v1.0-rt-web"
+      vpc_id:                                    "${aws_vpc.srs-vpc.id}"
+
+  + aws_route_table_association.srs-rt-web_igw-to-subnet_web
+      id:                                        <computed>
+      route_table_id:                            "${aws_route_table.srs-rt-web.id}"
+      subnet_id:                                 "${aws_subnet.srs-subnet-web.id}"
+
+  + aws_route_table_association.srs-rt_pvt_ngw-to-subnet_pvt
+      id:                                        <computed>
+      route_table_id:                            "${aws_route_table.srs-rt-ngw.id}"
+      subnet_id:                                 "${aws_subnet.srs-subnet-private.id}"
+
+  + aws_security_group.srs-sg-assignment
+      id:                                        <computed>
+      arn:                                       <computed>
+      description:                               "Rules for SRS Assignment Instance"
+      egress.#:                                  "1"
+      egress.482069346.cidr_blocks.#:            "1"
+      egress.482069346.cidr_blocks.0:            "0.0.0.0/0"
+      egress.482069346.description:              ""
+      egress.482069346.from_port:                "0"
+      egress.482069346.ipv6_cidr_blocks.#:       "0"
+      egress.482069346.prefix_list_ids.#:        "0"
+      egress.482069346.protocol:                 "-1"
+      egress.482069346.security_groups.#:        "0"
+      egress.482069346.self:                     "false"
+      egress.482069346.to_port:                  "0"
+      ingress.#:                                 "3"
+      ingress.2214680975.cidr_blocks.#:          "1"
+      ingress.2214680975.cidr_blocks.0:          "0.0.0.0/0"
+      ingress.2214680975.description:            ""
+      ingress.2214680975.from_port:              "80"
+      ingress.2214680975.ipv6_cidr_blocks.#:     "0"
+      ingress.2214680975.prefix_list_ids.#:      "0"
+      ingress.2214680975.protocol:               "tcp"
+      ingress.2214680975.security_groups.#:      "0"
+      ingress.2214680975.self:                   "false"
+      ingress.2214680975.to_port:                "80"
+      ingress.3989846265.cidr_blocks.#:          "1"
+      ingress.3989846265.cidr_blocks.0:          "0.0.0.0/0"
+      ingress.3989846265.description:            ""
+      ingress.3989846265.from_port:              "95"
+      ingress.3989846265.ipv6_cidr_blocks.#:     "0"
+      ingress.3989846265.prefix_list_ids.#:      "0"
+      ingress.3989846265.protocol:               "tcp"
+      ingress.3989846265.security_groups.#:      "0"
+      ingress.3989846265.self:                   "false"
+      ingress.3989846265.to_port:                "95"
+      ingress.807341396.cidr_blocks.#:           "1"
+      ingress.807341396.cidr_blocks.0:           "10.220.0.0/26"
+      ingress.807341396.description:             ""
+      ingress.807341396.from_port:               "22"
+      ingress.807341396.ipv6_cidr_blocks.#:      "0"
+      ingress.807341396.prefix_list_ids.#:       "0"
+      ingress.807341396.protocol:                "tcp"
+      ingress.807341396.security_groups.#:       "0"
+      ingress.807341396.self:                    "false"
+      ingress.807341396.to_port:                 "22"
+      name:                                      "SRS Assignment"
+      owner_id:                                  <computed>
+      revoke_rules_on_delete:                    "false"
+      tags.%:                                    "1"
+      tags.Name:                                 "srs-assignment-v1.0-sg-web"
+      vpc_id:                                    "${aws_vpc.srs-vpc.id}"
+
+  + aws_subnet.srs-subnet-private
+      id:                                        <computed>
+      arn:                                       <computed>
+      assign_ipv6_address_on_creation:           "false"
+      availability_zone:                         "ap-south-1a"
+      availability_zone_id:                      <computed>
+      cidr_block:                                "10.220.0.64/26"
+      ipv6_cidr_block:                           <computed>
+      ipv6_cidr_block_association_id:            <computed>
+      map_public_ip_on_launch:                   "false"
+      owner_id:                                  <computed>
+      tags.%:                                    "1"
+      tags.Name:                                 "srs-assignment-v1.0-subnet-private"
+      vpc_id:                                    "${aws_vpc.srs-vpc.id}"
+
+  + aws_subnet.srs-subnet-web
+      id:                                        <computed>
+      arn:                                       <computed>
+      assign_ipv6_address_on_creation:           "false"
+      availability_zone:                         "ap-south-1a"
+      availability_zone_id:                      <computed>
+      cidr_block:                                "10.220.0.0/26"
+      ipv6_cidr_block:                           <computed>
+      ipv6_cidr_block_association_id:            <computed>
+      map_public_ip_on_launch:                   "false"
+      owner_id:                                  <computed>
+      tags.%:                                    "1"
+      tags.Name:                                 "srs-assignment-v1.0-subnet-web"
+      vpc_id:                                    "${aws_vpc.srs-vpc.id}"
+
+  + aws_vpc.srs-vpc
+      id:                                        <computed>
+      arn:                                       <computed>
+      assign_generated_ipv6_cidr_block:          "false"
+      cidr_block:                                "10.220.0.0/24"
+      default_network_acl_id:                    <computed>
+      default_route_table_id:                    <computed>
+      default_security_group_id:                 <computed>
+      dhcp_options_id:                           <computed>
+      enable_classiclink:                        <computed>
+      enable_classiclink_dns_support:            <computed>
+      enable_dns_hostnames:                      "true"
+      enable_dns_support:                        "true"
+      instance_tenancy:                          "default"
+      ipv6_association_id:                       <computed>
+      ipv6_cidr_block:                           <computed>
+      main_route_table_id:                       <computed>
+      owner_id:                                  <computed>
+      tags.%:                                    "1"
+      tags.Name:                                 "srs-assignment-v1.0-vpc"
+
+
+Plan: 18 to add, 0 to change, 0 to destroy.
+
+------------------------------------------------------------------------
+
+This plan was saved to: plan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "plan"
+
+PS F:\Rajesh\terraform> terraform apply plan
+aws_vpc.srs-vpc: Creating...
+  arn:                              "" => "<computed>"
+  assign_generated_ipv6_cidr_block: "" => "false"
+  cidr_block:                       "" => "10.220.0.0/24"
+  default_network_acl_id:           "" => "<computed>"
+  default_route_table_id:           "" => "<computed>"
+  default_security_group_id:        "" => "<computed>"
+  dhcp_options_id:                  "" => "<computed>"
+  enable_classiclink:               "" => "<computed>"
+  enable_classiclink_dns_support:   "" => "<computed>"
+  enable_dns_hostnames:             "" => "true"
+  enable_dns_support:               "" => "true"
+  instance_tenancy:                 "" => "default"
+  ipv6_association_id:              "" => "<computed>"
+  ipv6_cidr_block:                  "" => "<computed>"
+  main_route_table_id:              "" => "<computed>"
+  owner_id:                         "" => "<computed>"
+  tags.%:                           "" => "1"
+  tags.Name:                        "" => "srs-assignment-v1.0-vpc"
+aws_vpc.srs-vpc: Creation complete after 5s (ID: vpc-087f752d853a9f563)
+aws_subnet.srs-subnet-private: Creating...
+  arn:                             "" => "<computed>"
+  assign_ipv6_address_on_creation: "" => "false"
+  availability_zone:               "" => "ap-south-1a"
+  availability_zone_id:            "" => "<computed>"
+  cidr_block:                      "" => "10.220.0.64/26"
+  ipv6_cidr_block:                 "" => "<computed>"
+  ipv6_cidr_block_association_id:  "" => "<computed>"
+  map_public_ip_on_launch:         "" => "false"
+  owner_id:                        "" => "<computed>"
+  tags.%:                          "" => "1"
+  tags.Name:                       "" => "srs-assignment-v1.0-subnet-private"
+  vpc_id:                          "" => "vpc-087f752d853a9f563"
+aws_route_table.srs-rt-ngw: Creating...
+  owner_id:           "" => "<computed>"
+  propagating_vgws.#: "" => "<computed>"
+  route.#:            "" => "<computed>"
+  tags.%:             "" => "1"
+  tags.Name:          "" => "srs-assignment-v1.0-rt-ngw"
+  vpc_id:             "" => "vpc-087f752d853a9f563"
+aws_internet_gateway.srs-igw: Creating...
+  owner_id:  "" => "<computed>"
+  tags.%:    "0" => "1"
+  tags.Name: "" => "srs-assignment-v1.0-igw"
+  vpc_id:    "" => "vpc-087f752d853a9f563"
+aws_subnet.srs-subnet-web: Creating...
+  arn:                             "" => "<computed>"
+  assign_ipv6_address_on_creation: "" => "false"
+  availability_zone:               "" => "ap-south-1a"
+  availability_zone_id:            "" => "<computed>"
+  cidr_block:                      "" => "10.220.0.0/26"
+  ipv6_cidr_block:                 "" => "<computed>"
+  ipv6_cidr_block_association_id:  "" => "<computed>"
+  map_public_ip_on_launch:         "" => "false"
+  owner_id:                        "" => "<computed>"
+  tags.%:                          "" => "1"
+  tags.Name:                       "" => "srs-assignment-v1.0-subnet-web"
+  vpc_id:                          "" => "vpc-087f752d853a9f563"
+aws_route_table.srs-rt-web: Creating...
+  owner_id:           "" => "<computed>"
+  propagating_vgws.#: "" => "<computed>"
+  route.#:            "" => "<computed>"
+  tags.%:             "" => "1"
+  tags.Name:          "" => "srs-assignment-v1.0-rt-web"
+  vpc_id:             "" => "vpc-087f752d853a9f563"
+aws_route_table.srs-rt-ngw: Creation complete after 2s (ID: rtb-05fdccfa3e2d80b80)
+aws_route_table.srs-rt-web: Creation complete after 2s (ID: rtb-07afceb6d72db1556)
+aws_subnet.srs-subnet-private: Creation complete after 2s (ID: subnet-086ae5bcaf5854a50)
+aws_subnet.srs-subnet-web: Creation complete after 2s (ID: subnet-0e568d7e3aaf66d9e)
+aws_route_table_association.srs-rt_pvt_ngw-to-subnet_pvt: Creating...
+  route_table_id: "" => "rtb-05fdccfa3e2d80b80"
+  subnet_id:      "" => "subnet-086ae5bcaf5854a50"
+aws_route_table_association.srs-rt-web_igw-to-subnet_web: Creating...
+  route_table_id: "" => "rtb-07afceb6d72db1556"
+  subnet_id:      "" => "subnet-0e568d7e3aaf66d9e"
+aws_security_group.srs-sg-assignment: Creating...
+  arn:                                   "" => "<computed>"
+  description:                           "" => "Rules for SRS Assignment Instance"
+  egress.#:                              "" => "1"
+  egress.482069346.cidr_blocks.#:        "" => "1"
+  egress.482069346.cidr_blocks.0:        "" => "0.0.0.0/0"
+  egress.482069346.description:          "" => ""
+  egress.482069346.from_port:            "" => "0"
+  egress.482069346.ipv6_cidr_blocks.#:   "" => "0"
+  egress.482069346.prefix_list_ids.#:    "" => "0"
+  egress.482069346.protocol:             "" => "-1"
+  egress.482069346.security_groups.#:    "" => "0"
+  egress.482069346.self:                 "" => "false"
+  egress.482069346.to_port:              "" => "0"
+  ingress.#:                             "" => "3"
+  ingress.2214680975.cidr_blocks.#:      "" => "1"
+  ingress.2214680975.cidr_blocks.0:      "" => "0.0.0.0/0"
+  ingress.2214680975.description:        "" => ""
+  ingress.2214680975.from_port:          "" => "80"
+  ingress.2214680975.ipv6_cidr_blocks.#: "" => "0"
+  ingress.2214680975.prefix_list_ids.#:  "" => "0"
+  ingress.2214680975.protocol:           "" => "tcp"
+  ingress.2214680975.security_groups.#:  "" => "0"
+  ingress.2214680975.self:               "" => "false"
+  ingress.2214680975.to_port:            "" => "80"
+  ingress.3989846265.cidr_blocks.#:      "" => "1"
+  ingress.3989846265.cidr_blocks.0:      "" => "0.0.0.0/0"
+  ingress.3989846265.description:        "" => ""
+  ingress.3989846265.from_port:          "" => "95"
+  ingress.3989846265.ipv6_cidr_blocks.#: "" => "0"
+  ingress.3989846265.prefix_list_ids.#:  "" => "0"
+  ingress.3989846265.protocol:           "" => "tcp"
+  ingress.3989846265.security_groups.#:  "" => "0"
+  ingress.3989846265.self:               "" => "false"
+  ingress.3989846265.to_port:            "" => "95"
+  ingress.807341396.cidr_blocks.#:       "" => "1"
+  ingress.807341396.cidr_blocks.0:       "" => "10.220.0.0/26"
+  ingress.807341396.description:         "" => ""
+  ingress.807341396.from_port:           "" => "22"
+  ingress.807341396.ipv6_cidr_blocks.#:  "" => "0"
+  ingress.807341396.prefix_list_ids.#:   "" => "0"
+  ingress.807341396.protocol:            "" => "tcp"
+  ingress.807341396.security_groups.#:   "" => "0"
+  ingress.807341396.self:                "" => "false"
+  ingress.807341396.to_port:             "" => "22"
+  name:                                  "" => "SRS Assignment"
+  owner_id:                              "" => "<computed>"
+  revoke_rules_on_delete:                "" => "false"
+  tags.%:                                "" => "1"
+  tags.Name:                             "" => "srs-assignment-v1.0-sg-web"
+  vpc_id:                                "" => "vpc-087f752d853a9f563"
+aws_route_table_association.srs-rt_pvt_ngw-to-subnet_pvt: Creation complete after 1s (ID: rtbassoc-0b8f906c5ff2b2449)
+aws_internet_gateway.srs-igw: Creation complete after 3s (ID: igw-0108a3abaa913beff)
+aws_route_table_association.srs-rt-web_igw-to-subnet_web: Creation complete after 1s (ID: rtbassoc-01c3c464914e9a051)
+aws_route.srs-rt-web_igw: Creating...
+  destination_cidr_block:     "" => "0.0.0.0/0"
+  destination_prefix_list_id: "" => "<computed>"
+  egress_only_gateway_id:     "" => "<computed>"
+  gateway_id:                 "" => "igw-0108a3abaa913beff"
+  instance_id:                "" => "<computed>"
+  instance_owner_id:          "" => "<computed>"
+  nat_gateway_id:             "" => "<computed>"
+  network_interface_id:       "" => "<computed>"
+  origin:                     "" => "<computed>"
+  route_table_id:             "" => "rtb-07afceb6d72db1556"
+  state:                      "" => "<computed>"
+aws_eip.nat_eip: Creating...
+  allocation_id:     "" => "<computed>"
+  association_id:    "" => "<computed>"
+  domain:            "" => "<computed>"
+  instance:          "" => "<computed>"
+  network_interface: "" => "<computed>"
+  private_dns:       "" => "<computed>"
+  private_ip:        "" => "<computed>"
+  public_dns:        "" => "<computed>"
+  public_ip:         "" => "<computed>"
+  public_ipv4_pool:  "" => "<computed>"
+  tags.%:            "" => "1"
+  tags.Name:         "" => "srs-assignment-v1.0-NAT"
+  vpc:               "" => "true"
+aws_route.srs-rt-web_igw: Creation complete after 1s (ID: r-rtb-07afceb6d72db15561080289494)
+aws_eip.nat_eip: Creation complete after 1s (ID: eipalloc-0758d85dd0d8e6318)
+aws_nat_gateway.srs-ngw: Creating...
+  allocation_id:        "" => "eipalloc-0758d85dd0d8e6318"
+  network_interface_id: "" => "<computed>"
+  private_ip:           "" => "<computed>"
+  public_ip:            "" => "<computed>"
+  subnet_id:            "" => "subnet-0e568d7e3aaf66d9e"
+  tags.%:               "" => "1"
+  tags.Name:            "" => "srs-assignment-v1.0-ngw"
+aws_security_group.srs-sg-assignment: Creation complete after 4s (ID: sg-0d74f29c70222540a)
+aws_instance.srs-ec2-assignment[2]: Creating...
+  ami:                                       "" => "ami-0b44050b2d893d5f7"
+  arn:                                       "" => "<computed>"
+  associate_public_ip_address:               "" => "true"
+  availability_zone:                         "" => "<computed>"
+  cpu_core_count:                            "" => "<computed>"
+  cpu_threads_per_core:                      "" => "<computed>"
+  ebs_block_device.#:                        "" => "<computed>"
+  ephemeral_block_device.#:                  "" => "<computed>"
+  get_password_data:                         "" => "false"
+  host_id:                                   "" => "<computed>"
+  instance_state:                            "" => "<computed>"
+  instance_type:                             "" => "t2.micro"
+  ipv6_address_count:                        "" => "<computed>"
+  ipv6_addresses.#:                          "" => "<computed>"
+  key_name:                                  "" => "srs-assignment-awskey"
+  metadata_options.#:                        "" => "<computed>"
+  network_interface.#:                       "" => "<computed>"
+  network_interface_id:                      "" => "<computed>"
+  outpost_arn:                               "" => "<computed>"
+  password_data:                             "" => "<computed>"
+  placement_group:                           "" => "<computed>"
+  primary_network_interface_id:              "" => "<computed>"
+  private_dns:                               "" => "<computed>"
+  private_ip:                                "" => "<computed>"
+  public_dns:                                "" => "<computed>"
+  public_ip:                                 "" => "<computed>"
+  root_block_device.#:                       "" => "1"
+  root_block_device.0.delete_on_termination: "" => "true"
+  root_block_device.0.device_name:           "" => "<computed>"
+  root_block_device.0.encrypted:             "" => "<computed>"
+  root_block_device.0.kms_key_id:            "" => "<computed>"
+  root_block_device.0.volume_id:             "" => "<computed>"
+  root_block_device.0.volume_size:           "" => "10"
+  root_block_device.0.volume_type:           "" => "gp2"
+  security_groups.#:                         "" => "<computed>"
+  source_dest_check:                         "" => "true"
+  subnet_id:                                 "" => "subnet-0e568d7e3aaf66d9e"
+  tags.%:                                    "" => "1"
+  tags.Name:                                 "" => "srs-assignment-v1.0-ec2-3"
+  tenancy:                                   "" => "<computed>"
+  volume_tags.%:                             "" => "1"
+  volume_tags.Name:                          "" => "srs-assignment-v1.0-ec2-3"
+  vpc_security_group_ids.#:                  "" => "1"
+  vpc_security_group_ids.2367334013:         "" => "sg-0d74f29c70222540a"
+aws_instance.srs-ec2-assignment[0]: Creating...
+  ami:                                       "" => "ami-0b44050b2d893d5f7"
+  arn:                                       "" => "<computed>"
+  associate_public_ip_address:               "" => "true"
+  availability_zone:                         "" => "<computed>"
+  cpu_core_count:                            "" => "<computed>"
+  cpu_threads_per_core:                      "" => "<computed>"
+  ebs_block_device.#:                        "" => "<computed>"
+  ephemeral_block_device.#:                  "" => "<computed>"
+  get_password_data:                         "" => "false"
+  host_id:                                   "" => "<computed>"
+  instance_state:                            "" => "<computed>"
+  instance_type:                             "" => "t2.micro"
+  ipv6_address_count:                        "" => "<computed>"
+  ipv6_addresses.#:                          "" => "<computed>"
+  key_name:                                  "" => "srs-assignment-awskey"
+  metadata_options.#:                        "" => "<computed>"
+  network_interface.#:                       "" => "<computed>"
+  network_interface_id:                      "" => "<computed>"
+  outpost_arn:                               "" => "<computed>"
+  password_data:                             "" => "<computed>"
+  placement_group:                           "" => "<computed>"
+  primary_network_interface_id:              "" => "<computed>"
+  private_dns:                               "" => "<computed>"
+  private_ip:                                "" => "<computed>"
+  public_dns:                                "" => "<computed>"
+  public_ip:                                 "" => "<computed>"
+  root_block_device.#:                       "" => "1"
+  root_block_device.0.delete_on_termination: "" => "true"
+  root_block_device.0.device_name:           "" => "<computed>"
+  root_block_device.0.encrypted:             "" => "<computed>"
+  root_block_device.0.kms_key_id:            "" => "<computed>"
+  root_block_device.0.volume_id:             "" => "<computed>"
+  root_block_device.0.volume_size:           "" => "10"
+  root_block_device.0.volume_type:           "" => "gp2"
+  security_groups.#:                         "" => "<computed>"
+  source_dest_check:                         "" => "true"
+  subnet_id:                                 "" => "subnet-0e568d7e3aaf66d9e"
+  tags.%:                                    "" => "1"
+  tags.Name:                                 "" => "srs-assignment-v1.0-ec2-1"
+  tenancy:                                   "" => "<computed>"
+  volume_tags.%:                             "" => "1"
+  volume_tags.Name:                          "" => "srs-assignment-v1.0-ec2-1"
+  vpc_security_group_ids.#:                  "" => "1"
+  vpc_security_group_ids.2367334013:         "" => "sg-0d74f29c70222540a"
+aws_instance.srs-ec2-assignment[1]: Creating...
+  ami:                                       "" => "ami-0b44050b2d893d5f7"
+  arn:                                       "" => "<computed>"
+  associate_public_ip_address:               "" => "true"
+  availability_zone:                         "" => "<computed>"
+  cpu_core_count:                            "" => "<computed>"
+  cpu_threads_per_core:                      "" => "<computed>"
+  ebs_block_device.#:                        "" => "<computed>"
+  ephemeral_block_device.#:                  "" => "<computed>"
+  get_password_data:                         "" => "false"
+  host_id:                                   "" => "<computed>"
+  instance_state:                            "" => "<computed>"
+  instance_type:                             "" => "t2.micro"
+  ipv6_address_count:                        "" => "<computed>"
+  ipv6_addresses.#:                          "" => "<computed>"
+  key_name:                                  "" => "srs-assignment-awskey"
+  metadata_options.#:                        "" => "<computed>"
+  network_interface.#:                       "" => "<computed>"
+  network_interface_id:                      "" => "<computed>"
+  outpost_arn:                               "" => "<computed>"
+  password_data:                             "" => "<computed>"
+  placement_group:                           "" => "<computed>"
+  primary_network_interface_id:              "" => "<computed>"
+  private_dns:                               "" => "<computed>"
+  private_ip:                                "" => "<computed>"
+  public_dns:                                "" => "<computed>"
+  public_ip:                                 "" => "<computed>"
+  root_block_device.#:                       "" => "1"
+  root_block_device.0.delete_on_termination: "" => "true"
+  root_block_device.0.device_name:           "" => "<computed>"
+  root_block_device.0.encrypted:             "" => "<computed>"
+  root_block_device.0.kms_key_id:            "" => "<computed>"
+  root_block_device.0.volume_id:             "" => "<computed>"
+  root_block_device.0.volume_size:           "" => "10"
+  root_block_device.0.volume_type:           "" => "gp2"
+  security_groups.#:                         "" => "<computed>"
+  source_dest_check:                         "" => "true"
+  subnet_id:                                 "" => "subnet-0e568d7e3aaf66d9e"
+  tags.%:                                    "" => "1"
+  tags.Name:                                 "" => "srs-assignment-v1.0-ec2-2"
+  tenancy:                                   "" => "<computed>"
+  volume_tags.%:                             "" => "1"
+  volume_tags.Name:                          "" => "srs-assignment-v1.0-ec2-2"
+  vpc_security_group_ids.#:                  "" => "1"
+  vpc_security_group_ids.2367334013:         "" => "sg-0d74f29c70222540a"
+aws_instance.srs-ec2-assignment[3]: Creating...
+  ami:                                       "" => "ami-0b44050b2d893d5f7"
+  arn:                                       "" => "<computed>"
+  associate_public_ip_address:               "" => "true"
+  availability_zone:                         "" => "<computed>"
+  cpu_core_count:                            "" => "<computed>"
+  cpu_threads_per_core:                      "" => "<computed>"
+  ebs_block_device.#:                        "" => "<computed>"
+  ephemeral_block_device.#:                  "" => "<computed>"
+  get_password_data:                         "" => "false"
+  host_id:                                   "" => "<computed>"
+  instance_state:                            "" => "<computed>"
+  instance_type:                             "" => "t2.micro"
+  ipv6_address_count:                        "" => "<computed>"
+  ipv6_addresses.#:                          "" => "<computed>"
+  key_name:                                  "" => "srs-assignment-awskey"
+  metadata_options.#:                        "" => "<computed>"
+  network_interface.#:                       "" => "<computed>"
+  network_interface_id:                      "" => "<computed>"
+  outpost_arn:                               "" => "<computed>"
+  password_data:                             "" => "<computed>"
+  placement_group:                           "" => "<computed>"
+  primary_network_interface_id:              "" => "<computed>"
+  private_dns:                               "" => "<computed>"
+  private_ip:                                "" => "<computed>"
+  public_dns:                                "" => "<computed>"
+  public_ip:                                 "" => "<computed>"
+  root_block_device.#:                       "" => "1"
+  root_block_device.0.delete_on_termination: "" => "true"
+  root_block_device.0.device_name:           "" => "<computed>"
+  root_block_device.0.encrypted:             "" => "<computed>"
+  root_block_device.0.kms_key_id:            "" => "<computed>"
+  root_block_device.0.volume_id:             "" => "<computed>"
+  root_block_device.0.volume_size:           "" => "10"
+  root_block_device.0.volume_type:           "" => "gp2"
+  security_groups.#:                         "" => "<computed>"
+  source_dest_check:                         "" => "true"
+  subnet_id:                                 "" => "subnet-0e568d7e3aaf66d9e"
+  tags.%:                                    "" => "1"
+  tags.Name:                                 "" => "srs-assignment-v1.0-ec2-4"
+  tenancy:                                   "" => "<computed>"
+  volume_tags.%:                             "" => "1"
+  volume_tags.Name:                          "" => "srs-assignment-v1.0-ec2-4"
+  vpc_security_group_ids.#:                  "" => "1"
+  vpc_security_group_ids.2367334013:         "" => "sg-0d74f29c70222540a"
+aws_instance.srs-ec2-assignment[4]: Creating...
+  ami:                                       "" => "ami-0b44050b2d893d5f7"
+  arn:                                       "" => "<computed>"
+  associate_public_ip_address:               "" => "true"
+  availability_zone:                         "" => "<computed>"
+  cpu_core_count:                            "" => "<computed>"
+  cpu_threads_per_core:                      "" => "<computed>"
+  ebs_block_device.#:                        "" => "<computed>"
+  ephemeral_block_device.#:                  "" => "<computed>"
+  get_password_data:                         "" => "false"
+  host_id:                                   "" => "<computed>"
+  instance_state:                            "" => "<computed>"
+  instance_type:                             "" => "t2.micro"
+  ipv6_address_count:                        "" => "<computed>"
+  ipv6_addresses.#:                          "" => "<computed>"
+  key_name:                                  "" => "srs-assignment-awskey"
+  metadata_options.#:                        "" => "<computed>"
+  network_interface.#:                       "" => "<computed>"
+  network_interface_id:                      "" => "<computed>"
+  outpost_arn:                               "" => "<computed>"
+  password_data:                             "" => "<computed>"
+  placement_group:                           "" => "<computed>"
+  primary_network_interface_id:              "" => "<computed>"
+  private_dns:                               "" => "<computed>"
+  private_ip:                                "" => "<computed>"
+  public_dns:                                "" => "<computed>"
+  public_ip:                                 "" => "<computed>"
+  root_block_device.#:                       "" => "1"
+  root_block_device.0.delete_on_termination: "" => "true"
+  root_block_device.0.device_name:           "" => "<computed>"
+  root_block_device.0.encrypted:             "" => "<computed>"
+  root_block_device.0.kms_key_id:            "" => "<computed>"
+  root_block_device.0.volume_id:             "" => "<computed>"
+  root_block_device.0.volume_size:           "" => "10"
+  root_block_device.0.volume_type:           "" => "gp2"
+  security_groups.#:                         "" => "<computed>"
+  source_dest_check:                         "" => "true"
+  subnet_id:                                 "" => "subnet-0e568d7e3aaf66d9e"
+  tags.%:                                    "" => "1"
+  tags.Name:                                 "" => "srs-assignment-v1.0-ec2-5"
+  tenancy:                                   "" => "<computed>"
+  volume_tags.%:                             "" => "1"
+  volume_tags.Name:                          "" => "srs-assignment-v1.0-ec2-5"
+  vpc_security_group_ids.#:                  "" => "1"
+  vpc_security_group_ids.2367334013:         "" => "sg-0d74f29c70222540a"
+aws_nat_gateway.srs-ngw: Still creating... (10s elapsed)
+aws_instance.srs-ec2-assignment.2: Still creating... (10s elapsed)
+aws_instance.srs-ec2-assignment.3: Still creating... (10s elapsed)
+aws_instance.srs-ec2-assignment.1: Still creating... (10s elapsed)
+aws_instance.srs-ec2-assignment.0: Still creating... (10s elapsed)
+aws_instance.srs-ec2-assignment.4: Still creating... (10s elapsed)
+aws_nat_gateway.srs-ngw: Still creating... (20s elapsed)
+aws_instance.srs-ec2-assignment.2: Still creating... (20s elapsed)
+aws_instance.srs-ec2-assignment.0: Still creating... (20s elapsed)
+aws_instance.srs-ec2-assignment.1: Still creating... (20s elapsed)
+aws_instance.srs-ec2-assignment.3: Still creating... (20s elapsed)
+aws_instance.srs-ec2-assignment.4: Still creating... (20s elapsed)
+aws_instance.srs-ec2-assignment[3]: Creation complete after 25s (ID: i-01644077d7a11b1a3)
+aws_instance.srs-ec2-assignment[1]: Creation complete after 26s (ID: i-006fb387006326611)
+aws_instance.srs-ec2-assignment[2]: Creation complete after 26s (ID: i-0f4f2fb9d5c807a00)
+aws_instance.srs-ec2-assignment[0]: Creation complete after 26s (ID: i-055a0684f38491f82)
+aws_instance.srs-ec2-assignment[4]: Creation complete after 26s (ID: i-09ee9d6e04ac5682b)
+aws_nat_gateway.srs-ngw: Still creating... (30s elapsed)
+aws_nat_gateway.srs-ngw: Still creating... (40s elapsed)
+aws_nat_gateway.srs-ngw: Still creating... (50s elapsed)
+aws_nat_gateway.srs-ngw: Still creating... (1m0s elapsed)
+aws_nat_gateway.srs-ngw: Still creating... (1m10s elapsed)
+aws_nat_gateway.srs-ngw: Still creating... (1m20s elapsed)
+aws_nat_gateway.srs-ngw: Still creating... (1m30s elapsed)
+aws_nat_gateway.srs-ngw: Still creating... (1m40s elapsed)
+aws_nat_gateway.srs-ngw: Still creating... (1m50s elapsed)
+aws_nat_gateway.srs-ngw: Still creating... (2m0s elapsed)
+aws_nat_gateway.srs-ngw: Creation complete after 2m1s (ID: nat-0c70b3be161ac16ae)
+aws_route.srs-rt-pvt_ngw: Creating...
+  destination_cidr_block:     "" => "0.0.0.0/0"
+  destination_prefix_list_id: "" => "<computed>"
+  egress_only_gateway_id:     "" => "<computed>"
+  gateway_id:                 "" => "nat-0c70b3be161ac16ae"
+  instance_id:                "" => "<computed>"
+  instance_owner_id:          "" => "<computed>"
+  nat_gateway_id:             "" => "<computed>"
+  network_interface_id:       "" => "<computed>"
+  origin:                     "" => "<computed>"
+  route_table_id:             "" => "rtb-05fdccfa3e2d80b80"
+  state:                      "" => "<computed>"
+aws_route.srs-rt-pvt_ngw: Creation complete after 1s (ID: r-rtb-05fdccfa3e2d80b801080289494)
+
+Apply complete! Resources: 18 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+Internet_Gateway_ID = igw-0108a3abaa913beff
+NAT_Gateway_Elastic_Alloc_ID = eipalloc-0758d85dd0d8e6318
+NAT_Gateway_Elastic_IP = 52.66.254.95
+NAT_Gateway_ID = nat-0c70b3be161ac16ae
+Private_subnet_ID = subnet-086ae5bcaf5854a50
+Public_subnet_ID = subnet-0e568d7e3aaf66d9e
+SRS_Instance_Public_IP = [
+    15.206.167.61,
+    13.235.134.175,
+    13.232.54.193,
+    13.126.110.2,
+    15.206.68.25
+]
+Security_Group_ID_SRS_Instance = sg-0d74f29c70222540a
+VPC_ID = vpc-087f752d853a9f563
+PS F:\Rajesh\terraform>
+PS F:\Rajesh\terraform>
+PS F:\Rajesh\terraform>
+PS F:\Rajesh\terraform>
+PS F:\Rajesh\terraform> terraform graph | dot -Tsvg  > graph.svg
+PS F:\Rajesh\terraform>
+PS F:\Rajesh\terraform>
+PS F:\Rajesh\terraform>
+PS F:\Rajesh\terraform> terraform show >> output.log
+PS F:\Rajesh\terraform>
